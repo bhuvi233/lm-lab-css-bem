@@ -1,33 +1,35 @@
 $font-family-title: fantasy;
 $font-family-contents: cursive;
 
-.title {
+@mixin flex($flexdirection: row) {
     display: flex;
+    flex-direction: $flexdirection;
+    align-items: center;
+    margin: 10px;
+    border-radius: 2rem;
+}
+  
+.title {
+    @include flex;
     justify-content: center;
     background: lightsalmon;
     height: 60px;
-    align-items: center;
-    margin: 5px auto;
     font-family: $font-family-title;
     font-weight: bolder;
     font-size: 3rem;
 }
 
 .container {
-    display: flex;
+    @include flex;
 }
 
 .card {
+    @include flex($flexdirection :column);
     width: 50%;
     height: 100%;
     border: 2px solid black;
-    padding: 20px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
+    padding: 20px; 
     font-family: $font-family-contents;
-    border-radius: 2rem;
 }
 
 .darkside {
@@ -43,6 +45,7 @@ $font-family-contents: cursive;
 
 .card__title {
     font-size: 2.5rem;
+    margin: 10px auto;
 }
 
 .card__img {
